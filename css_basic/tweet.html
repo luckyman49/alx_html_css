@@ -3,25 +3,52 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>My Tweets Page</title>
+  <!-- Responsive viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>My Tweets</title>
+
+  <!-- CSS links -->
   <link href="base.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
-
 </head>
 
-<body>
-  <h1>My Tweets</h1>
+<body class="works_on_smartphone">
+  <header>
+    <h1>My Tweets Page</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tweets.html">Tweets</a>
+    </nav>
+  </header>
 
-  <!-- Embedded Tweet -->
-  <blockquote class="twitter-tweet">
-    <p lang="en" dir="ltr">Learning HTML is fun! 🚀 #coding</p>
-    &mdash; Example User (@example)
-    <a href="https://twitter.com/example/status/1234567890">March 1, 2025</a>
-  </blockquote>
+  <main>
+    <article>
+      <h2>Recent Tweets</h2>
+      <p>Here are some sample tweets embedded from Twitter:</p>
+
+      <!-- Example embedded tweet -->
+      <blockquote class="twitter-tweet">
+        <p lang="en" dir="ltr">Learning HTML and CSS is fun! 🚀 #ALX #WebDev</p>
+        &mdash; Ganiyu (@luckymen)
+        <a href="https://twitter.com/yourhandle/status/1234567890">November 22, 2025</a>
+      </blockquote>
+
+      <!-- Add more tweets as needed -->
+    </article>
+
+    <aside>
+      <h2>Sidebar</h2>
+      <p>This is your sidebar content. You can add links, extra info, or widgets here.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 My Portfolio</p>
+  </footer>
+
+  <!-- Twitter embed script -->
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-  <!-- Link back to homepage -->
-  <p><a href="index.html">Go back to Homepage</a></p>
 </body>
 
 </html>

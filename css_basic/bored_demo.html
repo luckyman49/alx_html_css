@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Bored API Demo</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 20px; }
+    button { margin-right: 8px; padding: 8px 12px; }
+    #output { margin-top: 16px; padding: 12px; border: 1px solid #ddd; background:#fafafa; white-space:pre-wrap; }
+    .error { color: #b00020; }
+  </style>
+</head>
+<body>
+  <h3>Bored API Demo</h3>
+  <p>Click a button to fetch a random activity. Both console and the output box will show results.</p>
+
+  <button id="btn-promise">Fetch (promises)</button>
+  <button id="btn-async">Fetch (async/await + callback)</button>
+  <div id="output">Output will appear here...</div>
+
+  <script>
+    const API_URL = "https://bored-api.appbrewery.com/api/activity";
+
+    // Generic fetch with retries and exponential backoff
+    async function fetchWithRetries(url, options = {}, retries = 3, backoff = 300) {
+      let attempt = 0;
+      while (attempt <= retries) {
+        try {
+          const response = await fetch(url, options);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          return await response.json();
+        } catch (err) {
+          if (attempt === retries) throw err;
+          // wait with exponential backoff
+          const wait = backoff * Math.pow(2, attempt);
+          await new Promise(res => setTimeout(res, wait));
+          attempt++;
+        }
+      }
+    }
+
+    // Exercise 1: Using promises (.then/.catch)
+    function getBoredActivityPromise() {
+      const out = document.getElementById("output");
+      out.textContent = "Fetching activity (promises)...";
+      fetchWithRetries(API_URL, {}, 2, 250)
+        .then(data => {
+          const message = `Random activity (promises): ${data.activity}`;
+          console.log(message, data);
+          out.textContent = message;
+        })
+        .catch(err => {
+          console.error("Failed to fetch (promises):", err);
+          out.innerHTML = `<span class="error">Error fetching activity (promises): ${err.message}</span>`;
+        });
+    }
+
+    // Exercise 2: Using async/await and a callback
+    async function getBoredActivityAsync(callback) {
+      const out = document.getElementById("output");
+      out.textContent = "Fetching activity (async/await)...";
+      try {
+        const data = await fetchWithRetries(API_URL, {}, 2, 250);
+        // If callback provided, call it with the activity string
+        if (typeof callback === "function") {
+          callback(data.activity, data);
+        } else {
+          console.log("Received activity (async):", data);
+          out.textContent = `Random activity (async): ${data.activity}`;
+        }
+      } catch (err) {
+        console.error("Failed to fetch (async):", err);
+        out.innerHTML = `<span class="error">Error fetching activity (async): ${err.message}</span>`;
+      }
+    }
+
+    // Example callback that logs and updates the page
+    function logActivity(activity, fullData) {
+      const out = document.getElementById("output");
+      const message = `Activity from callback: ${activity}`;
+      console.log(message, fullData);
+      out.textContent = message;
+    }
+
+    // Wire buttons
+    document.getElementById("btn-promise").addEventListener("click", () => {
+      getBoredActivityPromise();
+    });
+
+    document.getElementById("btn-async").addEventListener("click", () => {
+      getBoredActivityAsync(logActivity);
+    });
+  </script>
+</body>
+</html>

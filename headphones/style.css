@@ -1,0 +1,100 @@
+/* Base layout */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  /* Center content and enforce max width */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Hero area (dark header) */
+.hero {
+  background-color: blueviolet
+    /* Dark theme */
+    color: gold padding: 32px 20px;
+  /* Space around content */
+}
+
+/* Navigation bar */
+.nav {
+  color: aqua display: flex;
+  justify-content: space-between;
+  /* Logo left, links right */
+  align-items: center;
+}
+
+.logo {
+  color: green font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  /* Space between links */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Link hover/active color per requirement */
+.nav-list a:hover,
+.nav-list a:active {
+  color: red;
+}
+
+/* Hero text block */
+.hero-content {
+  color: aquamarine text-align: center;
+  margin-top: 48px;
+}
+
+.hero-title {
+  margin: 0 0 12px;
+  font-size: 28px;
+}
+
+.hero-subtitle {
+  margin: 0 0 20px;
+  color: #ddd;
+  /* Softer contrast for subtitle */
+}
+
+/* Call-to-action button */
+.btn {
+  background-color: #FF6565;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 20px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+/* Button hover/active opacity per requirement */
+.btn:hover,
+.btn:active {
+  opacity: 0.9;
+}
+
+/* Mobile switch at 480px */
+@media (max-width: 480px) {
+  .nav {
+    flex-direction: column;
+    gap: 12px;
+    /* Space between logo and links */
+  }
+
+  .nav-list {
+    gap: 16px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+}
