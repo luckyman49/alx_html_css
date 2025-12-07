@@ -1,3 +1,7 @@
+
+This project is a responsive landing page built with **HTML and CSS only**, based on a Figma design provided by ALX.  
+It demonstrates responsive design, hover effects, and a clean layout without using JavaScript or external CSS frameworks.
+=======
 # Headphones Landing Page
 
 ## Description
@@ -9,12 +13,11 @@ Built with **HTML and CSS only**, based on a Figma design provided by ALX.
 - No JavaScript
 - Fonts: Source Sans Pro and Spin Cycle OT
 
-## Design
+## Features
+- Responsive design (switches to mobile layout at ≤ 480px)
+- Hover/active link color: `#FF6565`
+- Button hover/active opacity: `0.9`
 - Max content width: 1000px, centered
-- Responsive: switches to mobile layout at screen width ≤ 480px
-- Interactions:
-  - Links hover/active color: `#FF6565`
-  - Button hover/active: `opacity: 0.9`
 
 ## How to Run
 Clone the repository and open `index.html` in your browser:
@@ -23,7 +26,3 @@ Clone the repository and open `index.html` in your browser:
 git clone https://github.com/luckyman49/alx_html_css.git
 cd alx_html_css/headphones
 open index.html
-# Headphones Landing Page
-
-This project is a responsive landing page built with **HTML and CSS only**, based on a Figma design provided by ALX.  
-It demonstrates responsive design, hover effects, and a clean layout without using JavaScript or external CSS frameworks.
