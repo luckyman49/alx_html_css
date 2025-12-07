@@ -23,3 +23,7 @@ Clone the repository and open `index.html` in your browser:
 git clone https://github.com/luckyman49/alx_html_css.git
 cd alx_html_css/headphones
 open index.html
+# Headphones Landing Page
+
+This project is a responsive landing page built with **HTML and CSS only**, based on a Figma design provided by ALX.  
+It demonstrates responsive design, hover effects, and a clean layout without using JavaScript or external CSS frameworks.
