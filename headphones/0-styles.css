@@ -1,0 +1,214 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Variables */
+:root {
+  --max-w: 1000px;
+  --bg-dark: #000000;
+  --text-light: #ffffff;
+  --text-muted: #dddddd;
+  --accent: #FF6565;
+  --radius: 4px;
+  --space-s: 12px;
+  --space-m: 20px;
+  --space-l: 32px;
+}
+
+/* Base */
+body {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  color: var(--text-light);
+  background: var(--bg-dark);
+}
+
+/* Layout helpers */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--space-m);
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-l) 0 var(--space-m);
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* Nav list */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.nav-list a:hover,
+.nav-list a:active {
+  color: var(--accent);
+}
+
+/* Hero background */
+.hero {
+  background: url("headphones_hero_1.jpg") no-repeat center center;
+  background-size: cover;
+  color: var(--text-light);
+}
+
+.hero-content {
+  text-align: center;
+  padding: var(--space-l) 0 var(--space-l);
+}
+
+.hero-title {
+  margin: 0 0 var(--space-s);
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  margin: 0 0 var(--space-m);
+  color: var(--text-muted);
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+}
+
+.btn:hover,
+.btn:active {
+  opacity: 0.9;
+}
+
+.btn-sm {
+  padding: 8px 14px;
+}
+
+/* Mobile ≤ 480px */
+@media (max-width: 480px) {
+  .nav {
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+
+  .nav-list {
+    gap: 16px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero {
+    background-image: url("headphones_hero_2.jpg");
+  }
+}
+
+/* Section base */
+.section {
+  padding: 56px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+
+.section-lead {
+  text-align: center;
+  color: var(--text-muted);
+  margin: 0 auto 28px;
+  max-width: 640px;
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 480px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.card {
+  background: #111;
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+}
+
+.card-title {
+  margin: 12px 0 8px;
+  font-size: 18px;
+}
+
+.card-text {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Icon font setup */
+@font-face {
+  font-family: "holberton-icons";
+  src: url("fonts/holberton_school-icon.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  font-family: "holberton-icons";
+  font-size: 40px;
+  display: inline-block;
+  color: var(--accent);
+}
+
+/* Example glyphs (codes from demo page) */
+.icon-001-sound-wave::before {
+  content: "\e001";
+}
+
+.icon-002-mic::before {
+  content: "\e002";
+}
+
+.icon-003-headphones::before {
+  content: "\e003";
+}
+
+.icon-004-music::before {
+  content: "\e004";
+}
